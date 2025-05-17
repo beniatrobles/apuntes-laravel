@@ -1,0 +1,37 @@
+nav{
+    background-color: blue;
+    padding: 20px;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li a{
+    color: white;
+}
+
+.footer{
+    background-color: blue;
+    padding: 20px;
+}
+
+.footer h1{
+    color: white;
+    text-align: center;
+}
+
+.autor{
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+.botonG{
+    background-color: green;
+}
+
+.botonB{
+    background-color: red;
+}
