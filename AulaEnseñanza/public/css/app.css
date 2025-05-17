@@ -1,0 +1,221 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+/* ----------------- MENÚ ----------------- */
+.backgroundMenu {
+    background-color: black;
+    padding: 20px;
+}
+
+.lista {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lista > li {
+    position: relative;
+}
+
+.lista a {
+    color: white; /* 🔥 Esto hace que TODOS los enlaces, incluidos los del submenu, sean blancos */
+    text-decoration: none;
+    display: block;
+    padding: 15px 20px;
+}
+
+.lista a:hover {
+    text-decoration: underline;
+    color: blueviolet;
+}
+
+/* Submenú */
+.lista li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 180px;
+    z-index: 1000;
+}
+
+.lista li:hover > ul {
+    display: block;
+}
+
+.lista li ul li a {
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.lista li ul li a:hover {
+    background-color: #444;
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+/* ----------------- FOOTER ----------------- */
+.backgroundFooter {
+    background-color: black;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.footer {
+    color: white;
+    text-align: center;
+}
+
+/* ----------------- OTRAS SECCIONES ----------------- */
+.ejemplo {
+    display: flex;
+    justify-content: space-around;
+}
+
+.alumnoinicio {
+    background-color: aqua;
+    padding: 80px;
+}
+
+.profesorinicio {
+    background-color: burlywood;
+    padding: 80px;
+}
+
+.cursoinicio {
+    background-color: chartreuse;
+    padding: 80px;
+}
+
+.tabla {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabla th,
+.tabla td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabla th {
+    background-color: #f2f2f2;
+}
+
+.botonEditar {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.botonEditar:hover {
+    background-color: greenyellow;
+    color: black;
+    text-decoration: underline;
+}
+
+.botonEliminar {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.botonEliminar:hover {
+    background-color: rosybrown;
+    color: black;
+    text-decoration: underline;
+}
+
+.contenedorProfesores {
+    display: flex;
+    gap: 20%;
+    margin-left: 5%;
+}
+
+.fondoProfesor {
+    background-color: gray;
+    padding: 70px;
+}
+
+.accionesProfesores {
+    display: flex;
+    gap: 5%;
+}
+
+.uwu {
+    text-align: center;
+}
+
+.fueraComponente {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.componenteCursos {
+    background-color: bisque;
+    width: 50%;
+}
+
+.profesorImp {
+    background-color: beige;
+}
+
+
+.alert-success {
+    background-color: #28a745; /* Verde */
+    color: white;              /* Texto blanco */
+}
+
+
+.formulario{
+    background-color: burlywood;
+    width: 45%;
+    margin: 35px;
+}
+
+.label{
+    font-size: 20px;
+    color: white;
+}
+
+.campotexto{
+    border: 1px solid black;
+}
+
+.selFoto{
+    background-color: gray;
+}
+
+.listaAlumnos{
+    display: flex;
+    gap: 10px;
+}

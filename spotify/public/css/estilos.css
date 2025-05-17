@@ -1,0 +1,88 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.footer {
+    background-color: rgb(34, 30, 30);
+    padding: 20px;
+    margin-top: auto; /* <-- esto empuja el footer hacia abajo */
+}
+
+.texto{
+    text-align: center;
+    color: greenyellow;
+}
+
+.textoTxurdi{
+    background-color: rgb(34, 30, 30);
+    padding: 10px;
+}
+
+.menu{
+    background-color: gray;
+    padding: 10px;
+}
+
+.lista{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.lista li a{
+    text-decoration: none;
+    color: white;
+    
+   
+}
+
+.fondo{
+    background-color: black;
+    
+}
+
+.imagen {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.contenedorC{
+    margin: 30px;
+    width: 40%;
+    
+}
+.fondoC{
+    background-color: gray;
+    padding: 5px;
+    
+}
+
+.fondoP{
+    background: black;
+}
+
+.cancion{
+    color: white;
+}
+
+.playlist{
+    color: white;
+}
+
+.textoI{
+    color: white;
+}
+
