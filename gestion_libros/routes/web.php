@@ -14,5 +14,6 @@ Route::get('/autor/{id}',[AutorController::class,'detallesAutor'])->name('autore
 Route::get('/autor/{autor}/confirmar',[AutorController::class,'confirmarBorrado'])->name('autores.confirmar');
 Route::delete('/autor/{autor}',[AutorController::class,'destroy'])->name('autores.destroy');
 Route::get('/autor/{id}/editar',[AutorController::class,'editar'])->name('autores.editar');
+Route::put('/autor/{autor}',[AutorController::class,'update'])->name('autores.update');
 
 

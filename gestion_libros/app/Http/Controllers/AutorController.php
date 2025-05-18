@@ -54,4 +54,13 @@ class AutorController extends Controller
         $autor = Autor::findOrFail($id);
         return view('autores.editarAutor',compact('autor'));
     }
+
+    public function update(Request $request,Autor $autor){
+        $autor->nombre = $request->nombre;
+        $autor->pais = $request->pais;
+
+        $autor->save();
+
+        return redirect()->route('autores.index')->with('success','Autor editado correctamente');
+    }
 }
