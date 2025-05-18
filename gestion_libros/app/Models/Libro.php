@@ -20,6 +20,7 @@ class Libro extends Model
         'titulo',
         'descripcion',
         'año_publicacion',
+        'autor_id'
     ];
 
     protected $hidden = ['id'];
@@ -29,6 +30,6 @@ class Libro extends Model
     }
 
     public function opiniones(){
-        return $this->hasMany(Opinion::class);
+        return $this->hasMany(Opinion::class,'id_libro');
     }
 }

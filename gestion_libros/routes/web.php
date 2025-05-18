@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\AutorController;
+use App\Http\Controllers\LibroController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+
+///Autores
 Route::get('/',[AutorController::class,'indexAutores'])->name('autores.index');
 Route::get('/autor/crear',[AutorController::class,'crear'])->name('autores.crear');
 Route::post('/autor/crear',[AutorController::class,'store'])->name('autores.store');
@@ -16,4 +19,8 @@ Route::delete('/autor/{autor}',[AutorController::class,'destroy'])->name('autore
 Route::get('/autor/{id}/editar',[AutorController::class,'editar'])->name('autores.editar');
 Route::put('/autor/{autor}',[AutorController::class,'update'])->name('autores.update');
 
+///Libros
 
+Route::get('/libros/index',[LibroController::class,'indexLibros'])->name('libros.index');
+Route::get('/libros/crear',[LibroController::class,'crear'])->name('libros.crear');
+Route::post('/libros/crear',[LibroController::class,'store'])->name('libros.store');
