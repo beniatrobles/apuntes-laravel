@@ -32,4 +32,6 @@ class Libro extends Model
     public function opiniones(){
         return $this->hasMany(Opinion::class,'id_libro');
     }
+
+    
 }

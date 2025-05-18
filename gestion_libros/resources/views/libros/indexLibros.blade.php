@@ -15,7 +15,16 @@
     <h1>Listado de libros</h1>
     <a href="{{ route('libros.crear') }}" class="botonG">Crear Libro</a>
     @foreach ($libros as $libro)
-        <h2 class="autor">{{ $libro->titulo }}--{{ $libro->autor->nombre }}--{{ $libro->año_publicacion }}</h2>
+        <h2 class="autor">{{ $libro->titulo }}--{{ $libro->autor->nombre }}--{{ $libro->año_publicacion }} 
+            
+            
+            <form action="{{route('libros.borrar',$libro->id)}}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="botonB">Borrar libro</button>
+
+            </form>
+        </h2>
         @foreach ($libro->opiniones as $opinion)
             @if ($opinion->valoracion >= 3)
                 <p>{{ $opinion->valoracion }}--{{ $opinion->comentario }}--{{ $opinion->nombre_usuario }}</p>

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\OpinionController;
+use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -24,3 +26,17 @@ Route::put('/autor/{autor}',[AutorController::class,'update'])->name('autores.up
 Route::get('/libros/index',[LibroController::class,'indexLibros'])->name('libros.index');
 Route::get('/libros/crear',[LibroController::class,'crear'])->name('libros.crear');
 Route::post('/libros/crear',[LibroController::class,'store'])->name('libros.store');
+Route::delete('/libros/{id}/borrar',[LibroController::class,'borrarLibro'])->name('libros.borrar');
+
+
+//Opiniones
+Route::get('/opiniones/crear',[OpinionController::class,'crearOpinion'])->name('opiniones.crear');
+Route::post('/opiniones/crear',[OpinionController::class,'store'])->name('opiniones.store');
+
+
+///Pruebas
+
+Route::get('/pruebas',[PruebaController::class,'indexPruebas'])->name('pruebas.index');
+
+Route::get('/pruebas/crear', [PruebaController::class, 'create'])->name('pruebas.create');
+Route::post('/pruebas', [PruebaController::class, 'store'])->name('pruebas.store');

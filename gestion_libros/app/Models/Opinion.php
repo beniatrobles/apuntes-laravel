@@ -21,4 +21,8 @@ class Opinion extends Model
     public function libro(){
         return $this->belongsTo(Libro::class,'id_libro');
     }
+
+    public function pruebas(){
+        return $this->belongsToMany(Prueba::class,'prueba_opinion','opinion_id','prueba_id');
+    }
 }

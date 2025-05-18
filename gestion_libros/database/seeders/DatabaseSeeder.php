@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(LibroSeeder::class);
         $this->call(OpinionSeeder::class);
+        $this->call(PruebaSeeder::class);
+        $this->call(PruebaOpinionSeeder::class);
     }
 }
