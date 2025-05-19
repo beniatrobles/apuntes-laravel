@@ -40,3 +40,7 @@ Route::get('/pruebas',[PruebaController::class,'indexPruebas'])->name('pruebas.i
 
 Route::get('/pruebas/crear', [PruebaController::class, 'create'])->name('pruebas.create');
 Route::post('/pruebas', [PruebaController::class, 'store'])->name('pruebas.store');
+
+
+Route::get('/opiniones/{opinion}/editar-pruebas', [OpinionController::class, 'editarPruebas'])->name('opiniones.editarPruebas');
+Route::post('/opiniones/{opinion}/actualizar-pruebas', [OpinionController::class, 'actualizarPruebas'])->name('opiniones.actualizarPruebas');

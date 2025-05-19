@@ -31,4 +31,12 @@
         <button type="submit" class="botonG">Crear opinion</button>
     </form>
 
+    @foreach ($opiniones as $opinion)
+        <h4>{{$opinion->valoracion}}--{{$opinion->nombre_usuario}}
+
+            -- <a href="{{route('opiniones.editarPruebas',$opinion)}}" class="botonG">Ver Pruebas</a>
+        </h4>
+       
+    @endforeach
+
 @endsection

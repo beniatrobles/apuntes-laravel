@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Libro;
 use App\Models\Opinion;
+use App\Models\Prueba;
 use Illuminate\Http\Request;
 
 class OpinionController extends Controller
@@ -11,7 +12,8 @@ class OpinionController extends Controller
     public function crearOpinion()
     {
         $libros = Libro::all();
-        return view('opiniones.crearOpinion', compact('libros'));
+        $opiniones = Opinion::all();
+        return view('opiniones.crearOpinion', compact('libros','opiniones'));
     }
 
     public function store(Request $request)
@@ -35,5 +37,20 @@ class OpinionController extends Controller
         $libro = Libro::find($opinion->id_libro);
 
         return redirect()->route('libros.index')->with('success', 'Opinion del libro: ' . $libro->titulo . ' realizada.');
+    }
+
+
+    public function editarPruebas(Opinion $opinion)
+    {
+        $pruebas = Prueba::all();
+        return view('pruebas.editar_pruebas', compact('opinion', 'pruebas'));
+    }
+
+    public function actualizarPruebas(Request $request, Opinion $opinion)
+    {
+        // Sincroniza solo las pruebas seleccionadas
+        $opinion->pruebas()->sync($request->input('pruebas', []));
+
+        return redirect()->route('opiniones.editarPruebas', $opinion)->with('success', 'Pruebas actualizadas.');
     }
 }
