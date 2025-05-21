@@ -10,6 +10,17 @@ php artisan storage:link
 composer require laravel/breeze --dev
 php artisan breeze:install
 
+$profesores = Profesor::where('nombreApellido', 'like', 'B%')->get();
+
+$profesores = Profesor::has('cursos', '>=', 2)->get();
+
+$profesores = Profesor::withCount('cursos')
+    ->having('cursos_count', '>=', 2)
+    ->get();
+@foreach($profesores as $profesor)
+    <p>{{ $profesor->nombreApellido }} ({{ $profesor->cursos_count }} cursos)</p>
+@endforeach
+
 factories
  // Datos personales
     'nombre_completo' => $this->faker->name,
