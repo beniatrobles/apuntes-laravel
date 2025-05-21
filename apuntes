@@ -6,6 +6,13 @@ Route::get('/ejemplo/{id1}/{id2}', [EjemploController::class, 'ejemplo'])->name(
 
 php artisan storage:link
 
+php artisan make:migration create_curso_profesor_table
+
+public function cursos()
+{
+    return $this->belongsToMany(Curso::class, 'nombretablaintermedia', 'id_delaotratabla', 'id_deestatabla');
+}
+
 
 composer require laravel/breeze --dev
 php artisan breeze:install
