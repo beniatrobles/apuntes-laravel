@@ -12,17 +12,18 @@ class ProfesorController extends Controller
     {
         $buscar = $request->input('buscar');
 
-        if($buscar){
-            $profesores = Profesor::where('nombreApellido','like',"%{$buscar}%")->orderby('nombreApellido','desc')->paginate(3);
+        // Obtener lista de profesores para el select
+        $todosProfesores = Profesor::orderBy('nombreApellido')->get();
 
-        }else{
-            $profesores = Profesor::orderby('nombreApellido', 'desc')->paginate(3);
+        if ($buscar) {
+            $profesores = Profesor::where('nombreApellido', $buscar)
+                ->orderBy('nombreApellido', 'desc')
+                ->paginate(3);
+        } else {
+            $profesores = Profesor::orderBy('nombreApellido', 'desc')->paginate(3);
         }
 
-        return view('profesors.indexProfesores', compact('profesores','buscar'));
-
-        // $profesores = Profesor::orderby('nombreApellido', 'desc')->paginate(3);
-        // return view('profesors.indexProfesores', compact('profesores'));
+        return view('profesors.indexProfesores', compact('profesores', 'buscar', 'todosProfesores'));
     }
 
     public function confirm(Profesor $profesor)

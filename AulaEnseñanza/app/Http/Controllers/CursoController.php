@@ -9,19 +9,22 @@ use Illuminate\Http\Request;
 class CursoController extends Controller
 {
     public function index(Request $request)
-{
-    $buscar = $request->input('buscar');
+    {
+        $buscar = $request->input('buscar', []); // ahora es un array
 
-    $cursos = Curso::with('profesor')
-        ->when($buscar, function ($query, $buscar) {
-            return $query->where('nombre', 'like', '%' . $buscar . '%');
-        })
-        ->orderBy('nombre', 'asc')
-        ->paginate(5)
-        ->appends(['buscar' => $buscar]); // Para mantener el término en la paginación
+        // Obtener todos los nombres de cursos disponibles
+        $todosCursos = Curso::orderBy('nombre')->pluck('nombre')->unique();
 
-    return view('cursos.indexCursos', compact('cursos', 'buscar'));
-}
+        $cursos = Curso::with('profesor')
+            ->when($buscar, function ($query, $buscar) {
+                return $query->whereIn('nombre', $buscar);
+            })
+            ->orderBy('nombre', 'asc')
+            ->paginate(5)
+            ->appends(['buscar' => $buscar]);
+
+        return view('cursos.indexCursos', compact('cursos', 'buscar', 'todosCursos'));
+    }
 
     public function confirm(Curso $curso)
     {
@@ -69,7 +72,8 @@ class CursoController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         // dd('Entró al método store');
 
@@ -97,13 +101,12 @@ class CursoController extends Controller
 
         $curso->save();
 
-        return redirect()->route('cursos.index')->with('success',' Curso creado corrrectamente');
-
+        return redirect()->route('cursos.index')->with('success', ' Curso creado corrrectamente');
     }
 
-    public function verAlumnos(Curso $curso){
+    public function verAlumnos(Curso $curso)
+    {
 
-        return view('cursos.verAlumnosCurso' , compact('curso'));
-
+        return view('cursos.verAlumnosCurso', compact('curso'));
     }
 }

@@ -2,7 +2,9 @@ AulaEnseñanza
     paginate
     cargar algo random
     matricular alumno(se ven todos los cursos y en los que esta matriculados marcados)
-    buscar nombre con input
+    buscar nombre con input alumno
+    buscar nombre con select profesores
+    buscar nombre con checkbox cursos
     ver los alumnos que tiene un curso especifico
     seeders
 

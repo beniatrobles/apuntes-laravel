@@ -12,9 +12,17 @@
     <h1>Listado de cursos</h1>
 
     <form action="{{ route('cursos.index') }}" method="GET">
-        <input type="text" name="buscar" placeholder="Buscar por nombre" value="{{ request('buscar') }}" class="campotexto">
-        <button type="submit">Buscar</button>
-    </form>
+    <div>
+        @foreach($todosCursos as $cursoNombre)
+            <label style="display: block;">
+                <input type="checkbox" name="buscar[]" value="{{ $cursoNombre }}"
+                    {{ in_array($cursoNombre, (array) request('buscar')) ? 'checked' : '' }}>
+                {{ $cursoNombre }}
+            </label>
+        @endforeach
+    </div>
+    <button type="submit">Filtrar</button>
+</form>
 
     <p class="uwu">Usare un componente</p>
 
