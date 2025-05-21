@@ -1,0 +1,48 @@
+AulaEnseñanza
+    paginate
+    cargar algo random
+    matricular alumno(se ven todos los cursos y en los que esta matriculados marcados)
+    buscar nombre con input
+    ver los alumnos que tiene un curso especifico
+    seeders
+
+Gestion_libros
+    Cargar algo en un combobox para crear algo
+    usar el with para ver las opiniones que tiene un libro por ejemplo
+    usar el storage/public para crear algo y para mostrarlo
+    factories
+
+
+prueba 
+    login y logout / middkeware
+    componentes
+    crear algo
+    fotos no storage solo public
+
+spotify
+    login en solo una pagina
+    si un podcast es favorito lo muestra corazoncito rojo y si no blanco(dependiendo de quien se loguee)
+
+     $favoritos = Auth::user()->podcast->pluck('id')->toArray();
+     IMPORTANTE LO DEL pluck
+
+     seeder para llenar tablas intermedias
+      public function run(): void
+    {
+        $users = User::all();
+        $podcasts= Podcast::all();
+
+        foreach($users as $user){
+            $user->podcast()->attach(
+                $podcasts->random(rand(1,5))->pluck('id')->toArray()
+            );
+        }
+    }
+
+    buscar
+
+txurdican
+    condicional para mostrar algo
+    paginate
+    cambiar un valor de la tabla
+    mostrar una vista u otra dependiendo de la ruta

@@ -1,0 +1,67 @@
+Route::get('/ejemplo/{id1}/{id2}', [EjemploController::class, 'ejemplo'])->name('ejemplo.ejemplo');
+<a href="{{ route('ejemplo.ejemplo', [$id1, $id2]) }}">Ir a ejemplo</a>
+<a href="{{ route('ejemplo.ejemplo', ['id1' => $libro->id, 'id2' => $usuario->id]) }}">
+    Ir a ejemplo
+</a>
+
+php artisan storage:link
+
+
+composer require laravel/breeze --dev
+php artisan breeze:install
+
+factories
+ // Datos personales
+    'nombre_completo' => $this->faker->name,
+    'nombre' => $this->faker->firstName,
+    'apellido' => $this->faker->lastName,
+    'titulo' => $this->faker->title,
+    'usuario' => $this->faker->username,
+    'email' => $this->faker->email,
+    'telefono' => $this->faker->phoneNumber,
+    'direccion' => $this->faker->address,
+
+    // Ubicación / Geografía
+    'pais' => $this->faker->country,
+    'codigo_pais' => $this->faker->countryCode,
+    'ciudad' => $this->faker->city,
+    'estado' => $this->faker->state,
+    'codigo_postal' => $this->faker->postcode,
+    'latitud' => $this->faker->latitude,
+    'longitud' => $this->faker->longitude,
+
+    // Fechas y Tiempos
+    'fecha' => $this->faker->date,
+    'hora' => $this->faker->time,
+    'fecha_y_hora' => $this->faker->dateTime,
+    'fecha_rango' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
+
+    // Finanzas
+    'tarjeta_credito' => $this->faker->creditCardNumber,
+    'tipo_tarjeta' => $this->faker->creditCardType,
+    'iban' => $this->faker->iban,
+    'swift' => $this->faker->swiftBicNumber,
+
+    // Negocios / Empresa
+    'empresa' => $this->faker->company,
+    'puesto' => $this->faker->jobTitle,
+    'frase_comercial' => $this->faker->catchPhrase,
+    'jerga_negocio' => $this->faker->bs,
+
+    // Internet / Tecnología
+    'url' => $this->faker->url,
+    'ipv4' => $this->faker->ipv4,
+    'ipv6' => $this->faker->ipv6,
+    'mac' => $this->faker->macAddress,
+    'user_agent' => $this->faker->userAgent,
+
+    // Otros útiles
+    'uuid' => $this->faker->uuid,
+    'digito_aleatorio' => $this->faker->randomDigit,
+    'numero_aleatorio' => $this->faker->randomNumber,
+    'booleano' => $this->faker->boolean,
+    'texto' => $this->faker->text(200),
+    'palabra' => $this->faker->word,
+    'oracion' => $this->faker->sentence,
+    'parrafo' => $this->faker->paragraph,
+    'imagen' => $this->faker->imageUrl(640, 480),
